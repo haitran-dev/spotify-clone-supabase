@@ -49,6 +49,16 @@ const UploadModal = () => {
 
       console.log({ values, imageFile, songFile, user });
 
+      if (!values.title) {
+        toast.error("Missing title fields");
+        return;
+      }
+
+      if (!values.author) {
+        toast.error("Missing author fields");
+        return;
+      }
+
       if (!imageFile) {
         toast.error("Missing image fields");
         return;
