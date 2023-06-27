@@ -1,11 +1,23 @@
+import useAuthModal from "@/hooks/useAuthModal";
+import useUploadModal from "@/hooks/useUploadModal";
+import { useUser } from "@/hooks/useUser";
 import React from "react";
 import { BiSolidPlaylist, BiPlus } from "react-icons/bi";
 
 interface LibraryProps {}
 
 const Library = () => {
+  const authModal = useAuthModal();
+  const uploadModal = useUploadModal();
+  const { user } = useUser();
+
   const onClick = () => {
-    // upload
+    if (!user) {
+      return authModal.onOpen();
+    }
+
+    // check for subscription
+    uploadModal.onOpen();
   };
 
   return (
