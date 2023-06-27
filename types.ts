@@ -1,4 +1,3 @@
-import { metadata } from "./app/layout";
 import Stripe from "stripe";
 
 export interface UserDetail {
@@ -41,7 +40,7 @@ export interface Subscription {
   status?: Stripe.Subscription.Status;
   metadata?: Stripe.Metadata;
   price_id?: string;
-  quantity?: string;
+  quantity?: number;
   cancel_at_period_end?: boolean;
   create: string;
   current_peridd_start: string;
